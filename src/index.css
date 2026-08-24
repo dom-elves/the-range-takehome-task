@@ -110,22 +110,3 @@ code {
   background: var(--code-bg);
 }
 
-/** task specific classes */
-.title {
-  text-align: left;
-  font-weight: 400;
-}
-
-.filter-container {
-  display: flex;
-
-}
-
-.filter {
-  width: 100%;
-  margin: 0px 4px 0px 4px;
-  padding: 4px;
-  background-color: white;
-  border: 2px solid grey;
-  font-size: large;
-}

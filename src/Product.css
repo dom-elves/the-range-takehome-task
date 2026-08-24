@@ -1,0 +1,50 @@
+.basket-button {
+    background-color: orange;
+    color: white;
+    padding: 16px;
+    font-size: large;
+    border: none;
+    width: 100%;
+}
+
+.product-card {
+  flex: 1 0 47%;
+  border: 2px solid grey;
+  margin: 4px;
+  padding: 12px;
+
+  img {
+    height:40%;
+  }
+
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 21%;
+
+    .product-name {
+        font-weight: 700;
+        font-size: x-large;
+    }
+
+    .product-price {
+        font-weight: 400;
+        font-size: x-large;
+    }
+
+    .product-was-price {
+        color:red;
+        font-size: x-large;
+
+        span {
+            text-decoration: line-through;
+        }
+    }
+
+    .product-reviews {
+        color: green;
+        font-weight: 400;
+        font-size: larger;
+    }
+  }
+}
