@@ -15,7 +15,7 @@ function App() {
 
   /**
    * check response is okay, return data if so
-   * filter down data as specified
+   * set product constant from data
    * set error if caught
    * setLoadingProducts to false when finished
    */
@@ -28,9 +28,7 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        const filtered = data.product_arr.filter((product) => 
-            product.was_price && product.reviews);
-        setProducts(filtered);
+        setProducts(data.product_arr);
       })
       .catch((error) => {
         setError(error);

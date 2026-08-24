@@ -196,6 +196,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.2rem;
+    height:100%;
 }
 
 @media (min-width: 700px) {
