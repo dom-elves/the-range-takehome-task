@@ -16,8 +16,8 @@ function App() {
   /**
    * check response is okay, return data if so
    * set product constant from data
-   * set error if caught
-   * setLoadingProducts to false when finished
+   * setLoadingProducts as false to emulate slower response
+   * set error if caught, asll well as loading products to false
    */
  useEffect(() => {
     fetch('/api/product.json')
@@ -28,16 +28,18 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        setProducts(data.product_arr);
+        setTimeout(() => {
+          setProducts(data.product_arr);
+          setLoadingProducts(false);
+        }, 1000);
       })
       .catch((error) => {
         setError(error);
-      })
-      .finally(() => setLoadingProducts(false));
+        setLoadingProducts(false);
+      });
 
   }, []);
 
-  console.log(products);
   return (
     <>
       <h1 className="title">Office Essentials</h1>
@@ -47,6 +49,8 @@ function App() {
         <button className="grid-item filter">Sort By Name</button>
         <button className="grid-item filter">Sort By Saving</button>
       </div>
+      {loadingProducts && <p>Loading Products...</p>}
+      {error && <p>Error loading products, please try again later.</p>}
       <div className="grid-container">
         {products.map((product) => (
           <Product key={product.img} product={product}></Product>
