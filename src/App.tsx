@@ -39,18 +39,17 @@ function App() {
   return (
     <>
       <h1 className="title">Office Essentials</h1>
-      <div className="filter-container">
-        <button className="filter">Sort By Price</button>
-        <button className="filter">Sort By Review</button>
-        <button className="filter">Sort By Name</button>
-        <button className="filter">Sort By Saving</button>
+      <div className="grid-container">
+        <button className="grid-item filter">Sort By Price</button>
+        <button className="grid-item filter">Sort By Review</button>
+        <button className="grid-item filter">Sort By Name</button>
+        <button className="grid-item filter">Sort By Saving</button>
       </div>
-      <div>
+      <div className="grid-container">
         {products.map((product) => (
           <Product key={product.img} product={product}></Product>
         ))}
       </div>
-
     </>
   )
 }
