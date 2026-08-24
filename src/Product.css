@@ -6,51 +6,50 @@
     margin: 4px;
     padding: 12px;
 
-  img {
-    width:100%;
-    object-fit: contain;
-  }
-
-  .product-info {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-    height: 100%;
-
-    .product-name {
-        font-weight: 700;
-        font-size: x-large;
-        line-height: 1.4;
+    img {
+        width:100%;
+        object-fit: contain;
     }
 
-    .product-price {
-        font-weight: 400;
-        font-size: x-large;
-    }
+    .product-info {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.1rem;
+        height: 100%;
 
-    .product-was-price {
-        color:red;
-        font-size: x-large;
+        .product-name {
+            font-weight: 700;
+            font-size: x-large;
+            height: 68px;
+        }
 
-        span {
-            text-decoration: line-through;
+        .product-price {
+            font-weight: 400;
+            font-size: x-large;
+        }
+
+        .product-was-price {
+            color:red;
+            font-size: x-large;
+
+            span {
+                text-decoration: line-through;
+            }
+        }
+
+        .product-reviews {
+            color: green;
+            font-weight: 400;
+            font-size: larger;
+        }
+
+        .basket-button {
+            background-color: orange;
+            color: white;
+            padding: 16px;
+            font-size: large;
+            border: none;
+            width: 100%;
         }
     }
-
-    .product-reviews {
-        color: green;
-        font-weight: 400;
-        font-size: larger;
-    }
-
-    .basket-button {
-        background-color: orange;
-        color: white;
-        padding: 16px;
-        font-size: large;
-        border: none;
-        width: 100%;
-    }
-
-  }
 }
