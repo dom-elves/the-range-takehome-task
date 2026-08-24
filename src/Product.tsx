@@ -1,6 +1,6 @@
-function Product() {
+function Product({product}) {
     return (
-        <p>test</p>
+        <p>{product.name}</p>
     )
 }
 

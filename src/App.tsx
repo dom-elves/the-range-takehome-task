@@ -26,7 +26,7 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        setProducts(data);
+        setProducts(data.product_arr);
       })
       .catch((error) => {
         setError(error);
@@ -45,7 +45,12 @@ function App() {
         <button className="filter">Sort By Name</button>
         <button className="filter">Sort By Saving</button>
       </div>
-      <Product></Product>
+      <div>
+        {products.map((product) => (
+          <Product key={product.img} product={product}></Product>
+        ))}
+      </div>
+
     </>
   )
 }
