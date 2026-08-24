@@ -1,6 +1,8 @@
 import './Product.css'
 
 function Product({product}) {
+
+    console.log('test');
     return (
         <div className="grid-item product-card">
             <img src={`/product-images/${product.img}.jpg`} />
