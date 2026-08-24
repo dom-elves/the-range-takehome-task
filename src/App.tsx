@@ -14,8 +14,10 @@ function App() {
   const [error, setError] = useState(null);
 
   /**
-   * useEffect react hook, 2nd param of empty array supposedly only make it run once
-   * but still appears in console intermittently, not sure why
+   * check response is okay, return data if so
+   * filter down data as specified
+   * set error if caught
+   * setLoadingProducts to false when finished
    */
  useEffect(() => {
     fetch('/api/product.json')
@@ -26,7 +28,9 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        setProducts(data.product_arr);
+        const filtered = data.product_arr.filter((product) => 
+            product.was_price && product.reviews);
+        setProducts(filtered);
       })
       .catch((error) => {
         setError(error);
