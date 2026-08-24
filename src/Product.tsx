@@ -12,9 +12,9 @@ function Product({product}) {
 
     return (
         <div className="grid-item product-card">
-            <img src={`/product-images/${product.img}.jpg`} />
+            <img src={`/product-images/${product.img}.jpg`} alt={`${product.name}`}/>
             <div className="product-info">
-                <p className="product-name">{product.name}</p>
+                <h2 className="product-name">{product.name}</h2>
                 <p className="product-price">£{formattedPrice}</p>
                 <p 
                     className="product-was-price" 

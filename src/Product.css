@@ -2,7 +2,7 @@
 .product-card {
     display: grid;
     grid-template-columns: 1fr;
-    border: 2px solid grey;
+    border: 2px solid rgb(231, 231, 231);
     margin: 4px;
     padding: 12px;
 
@@ -44,12 +44,13 @@
         }
 
         .basket-button {
-            background-color: orange;
+            background-color: rgb(253, 135, 0);
             color: white;
             padding: 16px;
-            font-size: large;
+            font-size: x-large;
             border: none;
             width: 100%;
+            cursor: pointer;
         }
     }
 }
