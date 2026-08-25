@@ -18,7 +18,7 @@ function App() {
    * array of possible filters, looped over to create buttons
    */
   const [selectedFilter, setSelectedFilter] = useState(null);
-  const filters = ['price', 'reviews', 'name', 'was_price'];
+  const filters = ['Price', 'Reviews', 'Name', 'Was Price'];
 
   /**
    * check response is okay, return data if so
@@ -54,11 +54,11 @@ function App() {
    * was_price: same as price, standard a,b comparison
    */
   const filteredProducts = [...products].sort((a, b) => {
-    if (selectedFilter === 'price') {
+    if (selectedFilter === 'Price') {
       return a.price - b.price;
     }
 
-    if (selectedFilter === 'reviews') {
+    if (selectedFilter === 'Reviews') {
       if (a.reviews === false) {
         return false
       } else {
@@ -66,11 +66,11 @@ function App() {
       }
     }
 
-    if (selectedFilter === 'name') {
+    if (selectedFilter === 'Name') {
       return a.name.localeCompare(b.name);
     }
 
-    if (selectedFilter === 'was_price') {
+    if (selectedFilter === 'Was Price') {
       return b.was_price - a.was_price;
     }
 
@@ -86,6 +86,10 @@ function App() {
             key={filter} 
             className="filter"
             onClick={() => setSelectedFilter(filter)}
+            style={{
+              background: selectedFilter == filter ? 'orange' : '',
+              color: selectedFilter == filter ? 'white' : '',
+            }}
           >
             Sort By {filter}
           </button>
