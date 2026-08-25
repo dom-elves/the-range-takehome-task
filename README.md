@@ -1,75 +1,12 @@
-# React + TypeScript + Vite
+Starting off, I had no experience of React going into this. There's been a lot of googling "React equivalent of X in Vue" to help get me by, so apologies if any of the synax/structure is just way off of expectation. That being said, obviously I've learned a lot about React! I'll use this to explain decisions made, trying to hit on each part of the spec.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Part A
+- I've tried to do everything by eye with some trial and error, so some colouring (mainly the orange and gray) may be off, as well as font sizes.
+- I approached the idea of the display the same way I would if I was using Vue. Fetch the products, loop over a created Product component. I used the `img` attribute on each image in place of an `id` as there wasn't one, since this was relative to the name of each image anyway.
+- As detailed in the spec, four columns at 1200px+, using a media query. Default is one product (mobile views, up to 700px), and two products for everything inbetween. I switched between using `flex` and `grid` a couple of times when doing this, eventually settling on grid. I initially went for flex as that's what I'm used to, so sharpening up on CSS grid was handy.
+- I used ternary operators to display/hide null values.
+- The terminology used, "PHP headless API" is slightly confusing to me, so I've emailed Sam to ask for some clarification. Just so I could crack on with the task, I just fetch the contents of the json file.
+- I added in a 1s pause on request to emulate a slow response time, also so I could check my `loadingProducts` state was working. Similar thing for checking errors, just inverted the condition on `!response.ok` on the first `then()` block.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+#### Part B
+- The hardest part of this for me was getting my head round the React component re-rendering each time I set a new filter. Again, going for a Vue mindset, I was expecting a simple "click button, call function, filter data" sort of pattern. After realising that any time something in the state is changed, it re-renders, it made a lot more sense. I've used a simple js `sort()` comparison for the four filters. `price` and `was_price` are done in the standard way, as they're both numbers. I've had to use `localeCompare()` for names as they are strings, and an extra check if the item has no review (falsy) for filtering reviews. This is going off the assumption that we'd want to see reviewed items first, in ascending order, then unreviewed items. This however all may change, depending on what's actually required from the API side of things. 
