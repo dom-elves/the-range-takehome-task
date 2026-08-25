@@ -27,7 +27,7 @@ function App() {
    * set error if caught, asll well as loading products to false
    */
  useEffect(() => {
-    fetch('/api/product.json')
+    fetch('http://localhost:8000/api/products.php')
       .then((response) => {
         if (!response.ok) {
           throw new Error('error');
