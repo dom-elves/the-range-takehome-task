@@ -1,4 +1,14 @@
-Starting off, I had no experience of React going into this. There's been a lot of googling "React equivalent of X in Vue" to help get me by, so apologies if any of the synax/structure is just way off of expectation. That being said, obviously I've learned a lot about React! I'll use this to explain decisions made, trying to hit on each part of the spec.
+#### Intro
+Starting off, I had no experience of React going into this. There's been a lot of googling "React equivalent of X in Vue" to help get me by, so apologies if any of the synax/structure is just way off of expectation. That being said, obviously I've learned a lot about React! I'll use this to explain decisions made, trying to hit on each part of the spec. This task has even given me a chance to brush up on my PHP basics, and a few fundamentals.
+
+#### Setup
+Requirements: PHP (I think any version should do), npm.
+Steps:
+
+1. Clone down the repo using your preferred method.
+2. cd into `the-range-takehome-task`.
+3. Run `npm install`.
+4. Run `npm run serve`. This should run a combination of `npm run dev` and `php -S localhost:8000` to run the PHP server on port 8000 and the react app on 5173. The app will be available at localhost:5173.
 
 #### Part A
 - I've tried to do everything by eye with some trial and error, so some colouring (mainly the orange and gray) may be off, as well as font sizes.
