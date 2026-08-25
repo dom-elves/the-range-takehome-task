@@ -85,7 +85,11 @@ function App() {
           <button
             key={filter} 
             className="filter"
-            onClick={() => setSelectedFilter(filter)}
+            onClick={() => {
+              setSelectedFilter((currentFilter) =>
+                currentFilter === filter ? null : filter
+              );
+            }}
             style={{
               background: selectedFilter == filter ? 'orange' : '',
               color: selectedFilter == filter ? 'white' : '',
