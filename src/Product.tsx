@@ -11,7 +11,7 @@ function Product({product}) {
     const formattedWasPrice = formatCurrency(product.was_price);
 
     return (
-        <div className="grid-item product-card">
+        <div className="product-card">
             <img src={`/product-images/${product.img}.jpg`} alt={`${product.name}`}/>
             <div className="product-info">
                 <h2 className="product-name">{product.name}</h2>
